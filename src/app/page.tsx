@@ -1,100 +1,122 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useState, useEffect } from 'react';
+import About from "@/components/about";
+import Home from "@/components/home";
+import ThemeSwitch from "@/components/theme-switcher";
+import Skills from '@/components/skills';
+import Projects from '@/components/projects';
+import Contact from '@/components/contact';
+import { useLanguage } from '@/context/language.context';
+import Image from 'next/image';
+type Language = 'en' | 'pt';
+
+export default function App() {
+  const [activeSection, setActiveSection] = useState('home');
+  const { language, toggleLanguage } = useLanguage() as { language: Language; toggleLanguage: () => void };
+  const ulData = [
+    { id: 1, name: language === 'en' ? 'home' : 'home', href: "home" },
+    { id: 2, name: language === 'en' ? 'About' : 'Sobre', href: "about" },
+    { id: 3, name: language === 'en' ? 'Skills' : 'Habilidades', href: "skills" },
+    { id: 4, name: language === 'en' ? 'Projects' : 'Projetos', href: "projects" },
+    { id: 5, name: language === 'en' ? 'Contact' : 'Contato', href: "contact" },
+  ];
+  const year = new Date().getFullYear();
+  const componentData = {
+    en: {
+      footerFirstSection: `© ${year} Matheus. All rights reserved.`,
+      footerSecondSection: 'Thanks for reading this far! 🚀'
+    },
+    pt: {
+      footerFirstSection: `© ${year} Matheus. Todos os direitos reservados.`,
+      footerSecondSection: 'Obrigado por ler até aqui! 🚀'
+    }
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      let currentSection = '';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 130;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id') ?? '';
+        }
+      });
+      if (window.scrollY === 0 || window.scrollY < 70) {
+        currentSection = 'home';
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="w-full dark:bg-primaryColor bg-lightPrimaryColor">
+      <header className="fixed top-0 left-0 w-full z-10 flex p-3 px-48 justify-between items-center dark:bg-black bg-white shadow-md">
+        <h1 className="font-bold text-4xl">
+          <span className="dark:text-secondaryColor text-lightSecondaryColor">{'<>'}</span> Matheus{' '}
+          <span className="dark:text-secondaryColor text-lightSecondaryColor">{'</>'}</span>
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <ul className="flex gap-4">
+          {ulData.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.href}`}
+                className={`rounded-full px-4 py-2 ${activeSection === item.href
+                  ? 'dark:bg-secondaryColor bg-lightSecondaryColor dark:text-black text-lightPrimaryColor'
+                  : 'dark:text-white text-black hover:dark:bg-secondaryColor hover:dark:text-primaryColor hover:bg-lightSecondaryColor hover:text-white'
+                  }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className='flex gap-4'>
+          <button
+            onClick={toggleLanguage}
+
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {language === 'en' ?
+              <Image src="/lang/es.png" alt="Brazil" width={24} height={24} />
+              : <Image src="/lang/br.png" alt="Brazil" width={24} height={24} />}
+          </button>
+          <ThemeSwitch />
         </div>
+
+      </header>
+
+      {/* Conteúdo */}
+      <main className="pt-20 space-y-20 ">
+        <section id="home" className=" flex items-center justify-center ">
+          <Home />
+        </section>
+        <section id="about" className=" flex items-center justify-center">
+          <About />
+        </section>
+        <section id="skills" className="flex items-center justify-center">
+          <Skills />
+        </section>
+        <section id="projects" className=" flex items-center justify-center ">
+          <Projects />
+        </section>
+        <section id="contact" className=" flex items-center justify-center ">
+          <Contact />
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className=" w-full z-10 dark:bg-black bg-white shadow-md p-10 px-48">
+        <p className="text-center text-xl mt-4">
+          {componentData[language].footerFirstSection}
+        </p>
+        <p className="text-center text-sm italic">
+          {componentData[language].footerSecondSection}
+        </p>
       </footer>
     </div>
   );
