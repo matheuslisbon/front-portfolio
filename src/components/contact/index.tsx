@@ -74,7 +74,7 @@ export default function Contact() {
     <div className="w-full pb-56 px-4 xl:px-48 ">
       {/* Título principal */}
       <div className="flex">
-        <h1 className='font-bold text-7xl border-l-8 pl-4 text-center dark:border-l-secondaryColor border-l-lightSecondaryColor inline-block'>
+        <h1 className='font-bold text-4xl md:text-7xl border-l-8 pl-4 text-center dark:border-l-secondaryColor border-l-lightSecondaryColor inline-block'>
           {
             componentData[language].title
           }

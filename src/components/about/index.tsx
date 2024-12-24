@@ -44,7 +44,7 @@ export default function About() {
     },
     pt: {
       title: 'Sobre Mim,',
-      subscription: <div className="flex flex-col gap-4 px-20">
+      subscription: <div className="flex flex-col gap-4 xl:px-20">
         <h1 className='text-3xl dark:text-white  font-bold text-black'>
           Olá, eu sou Matheus.
         </h1>
