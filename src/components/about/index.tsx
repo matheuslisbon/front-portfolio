@@ -9,8 +9,8 @@ export default function About() {
   const componentData = {
     en: {
       title: 'About Me',
-      subscription: <div className="flex flex-col gap-4 px-20">
-        <h1 className='text-3xl dark:text-white  font-bold text-black'>
+      subscription: <div className="flex flex-col gap-4 xl:px-20">
+        <h1 className=' text-xl md:text-3xl dark:text-white  font-bold text-black'>
           Hello, {"I'"}m Matheus.
         </h1>
         <p className="text-2xl dark:text-white text-black border-l-8 border-l-yellow-400 pl-5">
@@ -82,22 +82,22 @@ export default function About() {
   }
 
   return (
-    <div className="w-full px-48">
+    <div className="w-full px-4 xl:px-48">
 
-      <div className="flex  content-center justify-center items-center">
-        <h1 className='font-bold text-7xl mt-14 dark border-b-8 text-center dark:border-b-secondaryColor border-b-lightSecondaryColor inline-block'>
+      <div className="flex xl:content-center xl:justify-center items-center">
+        <h1 className='font-bold text-5xl md:text-7xl md:mt-14 dark border-b-8 text-center dark:border-b-secondaryColor border-b-lightSecondaryColor inline-block'>
           {componentData[language].title}
         </h1>
       </div>
 
-      <div className="grid grid-cols-2 gap-10 mt-20">
-        <div className="flex px-20 w-full h-full ">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-20">
+        <div className="flex md:px-20 w-full h-full ">
           <Image
             src="/full.svg"
             alt="Imagem do autor"
             width={100}
             height={100}
-            className="w-full h-full max-h-[500px] object-contain"
+            className="w-full h-full max-h-[500px] min-w-44 object-contain"
           />
         </div>
         {componentData[language].subscription}

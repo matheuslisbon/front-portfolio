@@ -17,9 +17,9 @@ export default function CardSkills() {
   }
 
   return (
-    <div className="w-full px-8">
+    <div className="w-full md:px-8">
 
-      <div className="flex justify-between items-start gap-2 p-6 px-0 0 ">
+      <div className="flex md:flex-row flex-col justify-between items-center md:items-start gap-8 md:gap-2 p-6 px-0 0 ">
         <Card className='w-80 shadow-lg   dark:border-secondaryColor border-blue-500 hover:shadow-xl transition-shadow duration-300 bg-transparent backdrop-blur-sm' title="Frontend" color="blue">
           <CardHeader>
             <div>

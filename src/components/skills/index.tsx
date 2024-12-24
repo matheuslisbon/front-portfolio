@@ -15,7 +15,7 @@ export default function Skills() {
   }
 
   return (
-    <div className="w-full px-48">
+    <div className="w-full px-4 xl:px-48">
       <div className="flex">
         <h1 className='font-bold text-7xl border-l-8 pl-4 text-center dark:border-l-secondaryColor border-l-lightSecondaryColor inline-block'>
           {componentData[language].title}

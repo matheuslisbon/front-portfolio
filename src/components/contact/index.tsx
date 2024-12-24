@@ -71,7 +71,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full pb-56 px-48 ">
+    <div className="w-full pb-56 px-4 xl:px-48 ">
       {/* Título principal */}
       <div className="flex">
         <h1 className='font-bold text-7xl border-l-8 pl-4 text-center dark:border-l-secondaryColor border-l-lightSecondaryColor inline-block'>
@@ -94,7 +94,7 @@ export default function Contact() {
           <Image src="/socials/github.svg" alt="Contato" width={40} height={40} />
         </a>
       </div>
-      <form onSubmit={handleSubmit} className='flex flex-col w-1/2 space-y-4'>
+      <form onSubmit={handleSubmit} className='flex flex-col md:w-1/2 space-y-4'>
 
         <label htmlFor="email" className="font-medium mt-5 border-l-8 pl-4 dark:border-l-secondaryColor border-l-lightSecondaryColor inline-block ">
           Email
@@ -106,7 +106,7 @@ export default function Contact() {
           placeholder={componentData[language].emailPlaceholder}
           value={formData.email}
           onChange={handleChange}
-          className="p-2 border rounded-md max-w-96"
+          className="p-2 border rounded-md md:max-w-96"
         />
 
         <label htmlFor="message" className="font-medium mt-5 border-l-8 pl-4 dark:border-l-secondaryColor border-l-lightSecondaryColor inline-block ">
