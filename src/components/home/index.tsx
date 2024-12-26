@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Button } from '../ui/button'
 import { useLanguage } from '@/context/language.context';
+import { TypeAnimation } from 'react-type-animation';
 
 type Language = 'en' | 'pt';
 
@@ -10,16 +11,18 @@ export default function Home() {
   const { language } = useLanguage() as { language: Language };
 
 
-  const componentData: Record<Language, { title: string; subTitle: string; workWithMe: string; downloadCV: string }> = {
+  const componentData: Record<Language, { title: string; subTitle: string; workWithMe: string; downloadCV: string, legend: string }> = {
     en: {
       title: 'Hello,',
       subTitle: 'I am Matheus',
+      legend: 'Desenvolvedor Front-End',
       workWithMe: 'Work With Me',
       downloadCV: 'Download CV'
     },
     pt: {
       title: 'Olá,',
       subTitle: 'Eu sou Matheus',
+      legend: 'Desenvolvedor Front-End',
       workWithMe: 'Trabalhe Comigo',
       downloadCV: 'Download CV'
     }
@@ -36,6 +39,44 @@ export default function Home() {
           <h1 className=' text-4xl text-center md:text-6xl xl:text-7xl font-medium dark:text-white text-black border-b-8 dark:border-b-secondaryColor border-b-lightSecondaryColor '>
             {componentData[language].subTitle}
           </h1>
+          <p >
+            {
+              language === 'en' && (
+                <TypeAnimation
+                  sequence={[
+                    'Developer Frontend',
+                    1000,
+                    'Developer Backend',
+                    3000,
+                    'Developer Fullstack',
+                    3000,
+                  ]}
+                  preRenderFirstString={true}
+                  speed={20}
+                  style={{ fontSize: '2em' }}
+
+                />
+              )
+            }
+            {
+              language === 'pt' && (
+                <TypeAnimation
+                  sequence={[
+                    'Desenvolvedor Frontend',
+                    1000,
+                    'Desenvolvedor Backend',
+                    3000,
+                    'Desenvolvedor Fullstack',
+                    3000,
+                  ]}
+                  preRenderFirstString={true}
+                  speed={20}
+                  style={{ fontSize: '2em' }}
+
+                />
+              )
+            }
+          </p>
           <div className='border flex md:h-16 flex-col md:flex-row gap-4 md:gap-8'>
             <Button className='h-15 text-lg dark:bg-secondaryColor dark:text-black bg-lightSecondaryColor border-none rounded-none shadow-none hover:bg-blue-500 text-lightPrimaryColor'>
               {componentData[language].workWithMe}

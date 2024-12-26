@@ -20,7 +20,7 @@ export default function Projects() {
   return (
     <div className="w-full px-4 md:px-48 ">
       <div className="flex  content-center justify-center items-center">
-        <h1 className='font-bold text-7xl dark border-b-8 text-center border-b-lightSecondaryColor dark:border-b-secondaryColor inline-block'>
+        <h1 className='font-bold text-4xl md:text-7xl dark border-b-8 text-center border-b-lightSecondaryColor dark:border-b-secondaryColor inline-block'>
           {componentData[language].title}
         </h1>
       </div>

@@ -9,6 +9,7 @@ import Projects from '@/components/projects';
 import Contact from '@/components/contact';
 import { useLanguage } from '@/context/language.context';
 import Image from 'next/image';
+import { motion } from "motion/react"
 
 type Language = 'en' | 'pt';
 
@@ -68,7 +69,7 @@ export default function App() {
             <li key={item.id}>
               <a
                 href={`#${item.href}`}
-                className={`rounded-full px-4 py-2 ${activeSection === item.href
+                className={`rounded-full  px-4 py-2 ${activeSection === item.href
                   ? 'dark:bg-secondaryColor bg-lightSecondaryColor dark:text-black text-lightPrimaryColor'
                   : 'dark:text-white text-black hover:dark:bg-secondaryColor hover:dark:text-primaryColor hover:bg-lightSecondaryColor hover:text-white'
                   }`}
@@ -109,21 +110,44 @@ export default function App() {
 
       {/* Conteúdo */}
       <main className="pt-20 space-y-20">
-        <section id="home" className="flex items-center justify-center">
+        <motion.section
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          id="home"
+          className="flex items-center justify-center">
           <Home />
-        </section>
-        <section id="about" className="flex items-center justify-center">
+        </motion.section>
+
+
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          id="about" className="flex items-center justify-center">
           <About />
-        </section>
-        <section id="skills" className="flex items-center justify-center">
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          id="skills" className="flex items-center justify-center">
           <Skills />
-        </section>
-        <section id="projects" className="flex items-center justify-center">
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          id="projects" className="flex items-center justify-center">
           <Projects />
-        </section>
-        <section id="contact" className="flex items-center justify-center">
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          id="contact" className="flex items-center justify-center">
           <Contact />
-        </section>
+        </motion.section>
       </main>
 
       <footer className="w-full z-10 dark:bg-black bg-white shadow-md p-5 md:p-10 px-4 md:px-48">
