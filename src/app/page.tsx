@@ -127,6 +127,7 @@ export default function App() {
           id="about" className="flex items-center justify-center">
           <About />
         </motion.section>
+
         <motion.section
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}

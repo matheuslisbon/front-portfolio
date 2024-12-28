@@ -2,7 +2,13 @@ import { motion } from 'framer-motion';
 import Image from "next/image";
 import { useLanguage } from '@/context/language.context';
 type Language = 'en' | 'pt';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
+import { Avatar, AvatarFallback } from '../ui/avatar';
+import { FaLinkedin } from 'react-icons/fa';
 const itemVariants = {
   hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0 },
@@ -91,7 +97,227 @@ export default function About() {
             </motion.p>
           ))}
         </motion.div>
+
       </div>
+      <Swiper
+
+        spaceBetween={25} // Ajuste o espaçamento entre os slides
+        slidesPerView={3} // Exibe 4 slides ao mesmo tempo
+        loop={true} // Habilita o loop, para que o Swiper continue passando os slides
+        className='mt-10 ' // Adiciona uma margem ao Swiper
+        modules={[Autoplay, EffectCoverflow]} // Mantém a animação de autoplay
+        centeredSlides={true} // Centraliza os slides para manter os 4 visíveis
+        autoplay={{
+          delay: 0, // Ajuste o delay para a transição automática
+          disableOnInteraction: false, // Faz o autoplay continuar após interação do usuário
+        }}
+
+        pagination={true}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1, // Em telas menores, exibe 1 slide
+          },
+          768: {
+            slidesPerView: 2, // Em telas médias, exibe 2 slides
+          },
+          1024: {
+            slidesPerView: 4, // Em telas maiores, exibe 4 slides
+          },
+        }}
+        speed={4000} // Ajusta a velocidade da transição para 500ms
+      >
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide className='p-2'>
+          <Card className='cursor-pointer border-none'>
+            <CardHeader className='flex flex-row items-center gap-4 justify-between'>
+              <div className='flex flex-row items-center gap-4'>
+                <Avatar >
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <CardTitle>Matheus Eduardo</CardTitle>
+              </div>
+
+              <div className='bg-lightSecondaryColor p-2 rounded-full'>
+                <FaLinkedin size={24} cursor={'pointer'} />
+              </div>
+
+            </CardHeader>
+
+            <CardFooter>
+              <CardDescription>
+                Desenvolvedor Front-End
+              </CardDescription>
+            </CardFooter>
+          </Card>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 }
