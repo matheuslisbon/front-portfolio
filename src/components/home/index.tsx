@@ -30,13 +30,13 @@ export default function Home() {
 
   return (
     <div className="w-full px-4">
-      <div className='lg:grid lg:grid-cols-2 pt gap-12 pt-28'>
+      <div className='lg:grid lg:grid-cols-2 pt gap-12 pt-10 md:pt-28'>
         <div className='flex flex-col gap-6 md:justify-center md:items-center px-20 '>
 
-          <h1 className=' dark:text-white text-black text-7xl md:text-8xl '>
+          <h1 className=' dark:text-white text-black text-7xl md:text-8xl text-center'>
             {componentData[language].title}
           </h1>
-          <h1 className=' text-4xl text-center md:text-6xl xl:text-7xl font-medium dark:text-white text-black border-b-8 dark:border-b-secondaryColor border-b-lightSecondaryColor '>
+          <h1 className=' text-4xl text-center md:text-6xl xl:text-7xl  font-medium dark:text-white text-black border-b-8 dark:border-b-secondaryColor border-b-lightSecondaryColor '>
             {componentData[language].subTitle}
           </h1>
           <p >
@@ -53,7 +53,8 @@ export default function Home() {
                   ]}
                   preRenderFirstString={true}
                   speed={20}
-                  style={{ fontSize: '2em' }}
+                  className='text-xl md:text-3xl text-center flex justify-center'
+
 
                 />
               )
@@ -69,15 +70,15 @@ export default function Home() {
                     'Desenvolvedor Fullstack',
                     3000,
                   ]}
+                  className='text-xl md:text-3xl text-center flex justify-center '
                   preRenderFirstString={true}
                   speed={20}
-                  style={{ fontSize: '2em' }}
 
                 />
               )
             }
           </p>
-          <div className='border flex md:h-16 flex-col md:flex-row gap-4 md:gap-8'>
+          <div className='border flex h-16 mx-auto flex-row w-min '>
             <Button className='h-15 text-lg dark:bg-secondaryColor dark:text-black bg-lightSecondaryColor border-none rounded-none shadow-none hover:bg-blue-500 text-lightPrimaryColor'>
               {componentData[language].workWithMe}
             </Button>
