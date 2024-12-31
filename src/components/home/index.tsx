@@ -31,12 +31,12 @@ export default function Home() {
   return (
     <div className="w-full px-4">
       <div className='lg:grid lg:grid-cols-2 pt gap-12 pt-10 md:pt-28'>
-        <div className='flex flex-col gap-6 md:justify-center md:items-center px-20 '>
+        <div className='flex flex-col gap-6 md:justify-center md:items-center md:px-20 '>
 
           <h1 className=' dark:text-white text-black text-7xl md:text-8xl text-center'>
             {componentData[language].title}
           </h1>
-          <h1 className=' text-4xl text-center md:text-6xl xl:text-7xl  font-medium dark:text-white text-black border-b-8 dark:border-b-secondaryColor border-b-lightSecondaryColor '>
+          <h1 className=' text-4xl text-center md:text-6xl xl:text-7xl  font-medium dark:text-white text-black md:border-b-8 md:dark:border-b-secondaryColor md:border-b-lightSecondaryColor '>
             {componentData[language].subTitle}
           </h1>
           <p >
@@ -78,11 +78,11 @@ export default function Home() {
               )
             }
           </p>
-          <div className='border flex h-16 mx-auto flex-row w-min '>
-            <Button className='h-15 text-lg dark:bg-secondaryColor dark:text-black bg-lightSecondaryColor border-none rounded-none shadow-none hover:bg-blue-500 text-lightPrimaryColor'>
+          <div className='border flex h-16 mx-auto flex-row w-auto '>
+            <Button className='h-15 text-sm md:text-lg dark:bg-secondaryColor dark:text-black bg-lightSecondaryColor border-none rounded-none shadow-none hover:bg-blue-500 text-lightPrimaryColor'>
               {componentData[language].workWithMe}
             </Button>
-            <Button className='h-16 text-lg bg-transparent border-none shadow-none rounded-none hover:bg-transparent dark:text-white text-black'>Download CV</Button>
+            <Button className='h-16 text-sm md:text-lg bg-transparent border-none shadow-none rounded-none hover:bg-transparent dark:text-white text-black'>Download CV</Button>
           </div>
 
 
