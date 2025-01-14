@@ -71,7 +71,7 @@ export default function About() {
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-20">
-        <div className="hidden md:flex md:px-20 w-full h-full ">
+        <div className="hidden lg:flex md:px-20 w-full h-full ">
           <Image
             src="/full.svg"
             alt="Imagem do autor"
@@ -90,7 +90,7 @@ export default function About() {
           {subscription.map((item, index) => (
             <motion.p
               key={index}
-              className={`text-2xl dark:text-white ${item.color} border-l-8 ${item.borderColor} pl-5`}
+              className={`text-lg xl:text-2xl dark:text-white ${item.color} border-l-8 ${item.borderColor} pl-5`}
               variants={itemVariants}
             >
               {item.text}

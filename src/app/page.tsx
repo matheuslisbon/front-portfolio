@@ -64,7 +64,7 @@ export default function App() {
           <span className="dark:text-secondaryColor text-lightSecondaryColor">{'</>'}</span>
         </h1>
 
-        <ul className="hidden md:flex gap-4">
+        <ul className="hidden xl:flex gap-4">
           {ulData.map((item) => (
             <li key={item.id}>
               <a
@@ -93,7 +93,7 @@ export default function App() {
       </header>
 
       {/* Menu móvel */}
-      <nav className="fixed bottom-0 left-0 w-full z-10 flex justify-around items-center p-3 bg-white dark:bg-black md:hidden">
+      <nav className="fixed bottom-0 left-0 w-full z-10 flex justify-around items-center p-3 bg-white dark:bg-black xl:hidden">
         {ulData.map((item) => (
           <a
             key={item.id}
